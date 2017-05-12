@@ -1,0 +1,17 @@
+{
+    "startTime": "Sat Apr 29 11:33:00 CST 2017",
+    "ret": 0,
+    "price": "0",
+    "displayPlan": "1",
+    "jsonCreative": {
+        "icon": "http://192.168.0.54:8080/repos/image/1491554577598.png",
+        "imageUrl": "http://192.168.0.54:8080/repos/image/1491554580662.jpg",
+        "adContent": "霸王霸王 霸王霸王 霸王霸王 霸王霸王",
+        "adTitle": "超级霸王",
+        "adverForm": "12",
+        "id": 5,
+        "adId": 22,
+        "destUrl": "https://www.hao123.com/",
+        "inteMode": 1
+    }
+}

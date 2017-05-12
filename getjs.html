@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>点击获取js代码</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <style>
+        .ObtainBox {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px;
+            margin-top: -200px;
+            width: 500px;
+            height: 400px;
+            border: 1px solid #e0e0e0;
+            background: #fff;
+            transition: all 0.5s ease 0s;
+            z-index: 9999;
+        }
+
+        .ObtainTit {
+            height: 36px;
+            line-height: 36px;
+            background: #429aff;
+            color: #fff;
+            font-size: 12px;
+            padding-left: 20px;
+
+        }
+
+        .ObtainCon {
+            width: 478px;
+            height: 260px;
+            border: 1px solid #e0e0e0;
+            background: #f5f5f5;
+            margin: 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        pre {
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        pre code {
+            margin: 0;
+            color: #737373;
+            font-size: 12px;
+            padding: 0;
+            line-height: 24px;
+        }
+
+        .Obtain_hidden {
+            display: block !important;
+            transform: translate(0, -150%);
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点击获取js</button>
+    <div class="ObtainBox Obtain_hidden">
+        <div class="ObtainTit">获取JS代码
+            <a class="draweractionpanel_close_btn ObtainBtn" href="javascript:void(0);">x</a>
+        </div>
+        <!--ObtainTit-->
+        <div class="ObtainCon" id="AdCode_text">
+            <pre><code>&lt;script&gt;
+var script = document.getElementsByTagName('script');
+var thisNode = script[script.length-1];
+var TencentGDT = TencentGDT || [];
+var jsload = jsload || 0;
+jsload++;
+TencentGDT.push({
+   AndAds : [{AppId:'3758',AdslotId:'5051'}],
+   IosAds : [{AppId:'3758',AdslotId:'5051'}],
+   adType : 'cp',
+   fillType : 'bottom',
+   thisNode : thisNode,
+   jsload : jsload,
+   meta : true
+});
+if(typeof scritpsrclink == 'undefined') {
+   var doc=document, h=doc.getElementsByTagName('head')[0], scritpsrclink = doc.createElement('script');
+   scritpsrclink.defer=true;
+   scritpsrclink.src='http://static.youxiaoad.com/js/hyadapialltw.js';
+   scritpsrclink.charset = "utf-8";
+   h &amp;&amp; h.insertBefore(scritpsrclink,h.firstChild)
+}
+&lt;/script&gt;</code></pre>
+        </div>
+        <!--ObtainCon-->
+        <p class="ObtainTi">请将上面代码复制到&lt;body&gt;&lt;/body&gt;之间</p>
+        <div class="field_But" style="margin:10px 0;">
+            <input id="AdCode_copy" data-clipboard-target="AdCode_text" name="" type="button" value="复制" class="">
+            <input class="auxiao" name="" type="button" value="取消">
+        </div>
+        <!--field_But-->
+    </div>
+    <script src="js/ZeroClipboard.min.js"></script>
+    <script>
+        $('#btn').on('click', function () {
+            $('.ObtainBox').removeClass('Obtain_hidden');
+        });
+        $(".draweractionpanel_close_btn").on('click', function () {
+            $('.ObtainBox').addClass('Obtain_hidden');
+        });
+        $('#AdCode_copy').on('click', function () {
+            var text = $("#AdCode_text").html()
+            var msg = "复制成功";
+            clipboard("AdCode_copy", text, msg);
+        });
+
+
+
+        //参数说明
+        //button:按钮id
+        //text:要复制的文本
+        //msg:复制成功提示文本
+        function clipboard(button, text, msg) {
+
+            if (window.clipboardData) { //for ie
+                var copyBtn = document.getElementById(button);
+                copyBtn.onclick = function () {
+                    window.clipboardData.setData('text', text);
+                    alert(msg);
+                }
+            } else {
+                var client = new ZeroClipboard($("#" + button));
+                client.on('ready', function (event) {
+
+                    client.on('copy', function (event) {
+                        event.clipboardData.setData("text/plain", text);
+                        alert(msg);
+                    });
+                });
+
+                client.on('error', function (event) {
+                    ZeroClipboard.destroy();
+                });
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

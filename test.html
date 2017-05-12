@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>text ajax</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+    <a href="http://www.baidu.com" class="a">12312312312312312312312312</a>
+    <script>
+        $('.a').on('click', function () {
+            var data = {
+                domainName: 'www.codecreator.cn',
+                adSpaceId: '2',
+                adId: '3',
+                displayPlan: '4',
+                price: '5',
+                adContentId: '6',
+                displayPlan: '7'
+            }
+            $.ajax({
+                url: 'http://192.168.0.57:8080/webCpcCallBack.jspa',
+                type: 'get',
+                data: data,
+                success: function () {
+
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>
